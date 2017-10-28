@@ -9,8 +9,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
+/**
+ * Author: Mr.Chatchapol Rasameluangon
+ * ID: 5810404901
+ */
 public class Animation {
-    private Animation current;
 
     private Animation() {
     }

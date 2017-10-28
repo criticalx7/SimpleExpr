@@ -6,6 +6,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+/**
+ * Author: Mr.Chatchapol Rasameluangon
+ * ID: 5810404901
+ */
 public class ClientMain extends Application {
 
     @Override

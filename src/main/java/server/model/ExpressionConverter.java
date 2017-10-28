@@ -4,6 +4,10 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Author: Mr.Chatchapol Rasameluangon
+ * ID: 5810404901
+ */
 public abstract class ExpressionConverter {
     private final Logger logger = Logger.getLogger(ExpressionConverter.class.getName());
     private final Map<String, Integer> operator;

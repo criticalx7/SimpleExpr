@@ -15,6 +15,10 @@ import java.util.logging.Formatter;
 import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 
+/**
+ * Author: Mr.Chatchapol Rasameluangon
+ * ID: 5810404901
+ */
 class ConverterServer {
     private final Logger logger = Logger.getLogger(ConverterServer.class.getName());
     private final AtomicInteger numThreads = new AtomicInteger(0);

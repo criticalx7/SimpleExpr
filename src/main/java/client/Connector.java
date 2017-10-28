@@ -7,6 +7,10 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+/**
+ * Author: Mr.Chatchapol Rasameluangon
+ * ID: 5810404901
+ */
 class Connector {
     private final String hostname;
     private final int port;
