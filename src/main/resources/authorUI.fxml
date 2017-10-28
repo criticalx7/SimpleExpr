@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<VBox prefHeight="220.0" prefWidth="435.0" spacing="10.0" stylesheets="@simpleTheme.css"
+      xmlns="http://javafx.com/javafx/9">
+    <FlowPane alignment="CENTER_LEFT" prefHeight="33.0" prefWidth="435.0" style="-fx-background-color: darkgray;">
+        <Label text="Author" textFill="#fffbfb">
+            <font>
+                <Font name="Cordia New" size="26.0"/>
+            </font>
+            <padding>
+                <Insets left="20.0"/>
+            </padding>
+        </Label>
+    </FlowPane>
+    <VBox>
+        <VBox.margin>
+            <Insets left="15.0"/>
+        </VBox.margin>
+        <Label prefHeight="8.0" prefWidth="405.0" text="This expression converter is part of network Project.">
+            <font>
+                <Font name="Cordia New" size="24.0"/>
+            </font>
+        </Label>
+        <Label text="01418351 Computer Communications &amp; Protocols">
+            <font>
+                <Font name="Cordia New" size="22.0"/>
+            </font>
+        </Label>
+    </VBox>
+    <VBox spacing="10.0">
+        <VBox.margin>
+            <Insets left="15.0"/>
+        </VBox.margin>
+        <HBox alignment="CENTER_LEFT" spacing="30.0">
+            <Label text="Author">
+                <font>
+                    <Font name="Cordia New" size="23.0"/>
+                </font>
+                <HBox.margin>
+                    <Insets left="10.0"/>
+                </HBox.margin>
+            </Label>
+            <TextField editable="false" prefHeight="33.0" prefWidth="295.0" styleClass="box-field"
+                       text="Mr. Chatchapol Rasameluangon">
+                <font>
+                    <Font name="Cordia New" size="16.0"/>
+                </font>
+            </TextField>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" prefWidth="435.0" spacing="59.0">
+            <Label text="ID">
+                <font>
+                    <Font name="Cordia New" size="23.0"/>
+                </font>
+                <HBox.margin>
+                    <Insets left="10.0"/>
+                </HBox.margin>
+            </Label>
+            <TextField editable="false" styleClass="box-field" text="5810404901">
+                <font>
+                    <Font name="Cordia New" size="16.0"/>
+                </font>
+            </TextField>
+        </HBox>
+    </VBox>
+</VBox>

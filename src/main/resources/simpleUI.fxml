@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<StackPane styleClass="background" stylesheets="@simpleTheme.css" xmlns="http://javafx.com/javafx/9"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.SimpleUIController">
+    <VBox fx:id="root" alignment="TOP_CENTER" prefHeight="480.0" prefWidth="640.0" spacing="20.0"
+          styleClass="background">
+        <Label fx:id="exprLabel" alignment="CENTER" prefHeight="70.0" prefWidth="357.0"
+               text="Type in your expression" textFill="#4d4545">
+            <font>
+                <Font name="Cordia New" size="39.0"/>
+            </font>
+        </Label>
+        <TextField fx:id="exprField" alignment="CENTER" onAction="#onEnter" prefHeight="65.0" prefWidth="220.0"
+                   promptText="Eg. x+2*(4-y)^2" styleClass="plain-field">
+            <font>
+                <Font name="Cordia New" size="25.0"/>
+            </font>
+            <VBox.margin>
+                <Insets left="210.0" right="210.0"/>
+            </VBox.margin>
+        </TextField>
+        <FlowPane alignment="CENTER" hgap="40.0" prefHeight="47.0" prefWidth="400.0">
+            <VBox.margin>
+                <Insets left="100.0" right="100.0"/>
+            </VBox.margin>
+            <ToggleButton fx:id="prefixButton" mnemonicParsing="false" onAction="#onPrefixSelected"
+                          prefHeight="40.0" prefWidth="80.0" styleClass="plain-toggle" text="Prefix">
+                <font>
+                    <Font name="Verdana" size="14.0"/>
+                </font>
+            </ToggleButton>
+            <ToggleButton fx:id="postfixButton" mnemonicParsing="false" onAction="#onPostfixSelected"
+                          prefHeight="40.0" prefWidth="80.0" styleClass="plain-toggle" text="Postfix">
+                <font>
+                    <Font name="Verdana" size="14.0"/>
+                </font>
+            </ToggleButton>
+        </FlowPane>
+        <HBox alignment="CENTER" prefHeight="52.0" prefWidth="640.0">
+            <VBox.margin>
+                <Insets/>
+            </VBox.margin>
+            <TextField fx:id="resultField" alignment="CENTER" editable="false" prefHeight="50.0"
+                       prefWidth="550.0" promptText="result" styleClass="box-field">
+                <font>
+                    <Font name="Cordia New" size="25.0"/>
+                </font>
+            </TextField>
+        </HBox>
+        <VBox prefWidth="525.0">
+            <VBox.margin>
+                <Insets/>
+            </VBox.margin>
+            <padding>
+                <Insets left="70.0"/>
+            </padding>
+            <Label prefHeight="48.0" prefWidth="344.0"
+                   text="(?) 1. supports basic operations  + - * / ^ and ()." textFill="#868181">
+                <font>
+                    <Font name="Verdana Italic" size="12.0"/>
+                </font>
+            </Label>
+            <Label prefHeight="15.0" prefWidth="315.0"
+                   text="2. supports multiple digits, decimals and variables." textFill="#868181">
+                <VBox.margin>
+                    <Insets left="20.0"/>
+                </VBox.margin>
+                <font>
+                    <Font name="Verdana Italic" size="12.0"/>
+                </font>
+            </Label>
+        </VBox>
+        <padding>
+            <Insets top="30.0"/>
+        </padding>
+    </VBox>
+    <Button mnemonicParsing="false" prefHeight="25.0" styleClass="plain-button" text="Author"
+            StackPane.alignment="TOP_RIGHT" onAction="#onAuthorPressed">
+        <StackPane.margin>
+            <Insets right="15.0" top="15.0"/>
+        </StackPane.margin>
+        <font>
+            <Font name="Verdana" size="12.0"/>
+        </font>
+    </Button>
+</StackPane>
