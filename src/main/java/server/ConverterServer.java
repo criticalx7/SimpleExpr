@@ -21,6 +21,11 @@ class ConverterServer {
     private final AtomicInteger numThreads = new AtomicInteger(0);
     private final int port;
 
+    /**
+     * This constructor setup handle of Log to be used for Server logging
+     *
+     * @param port A port to bind to
+     */
     ConverterServer(int port) {
         this.port = port;
         // logger handle
@@ -40,6 +45,9 @@ class ConverterServer {
         logger.addHandler(handler);
     }
 
+    /**
+     * This method loop for connection from clients and create a thread from it
+     */
     @SuppressWarnings("InfiniteLoopStatement")
     void listen() {
         logger.info(String.format("Try connecting to port: %d", port));
@@ -57,6 +65,7 @@ class ConverterServer {
         }
     }
 
+    // a simple server thread
     private class ServerThread extends Thread {
 
         private final Socket client;

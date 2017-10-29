@@ -4,6 +4,10 @@ import common.StatusCode;
 import server.model.ConverterFactory;
 import server.model.ExpressionConverter;
 
+/**
+ * This class handle input from client and call appropriate class to
+ * process the data
+ */
 class ConverterProtocol {
 
 
@@ -16,6 +20,7 @@ class ConverterProtocol {
             String expr = clientData[1];
             result = String.format("%s:%s", StatusCode.ANSWER.getCode(), getConverter(code).convert(expr));
         } else {
+            // colon use detected, return error
             result = String.format("%s:%s", StatusCode.ERROR.getCode(), "Cannot use colon in expression");
         }
 
@@ -36,6 +41,12 @@ class ConverterProtocol {
         return parsable;
     }
 
+    /**
+     * Convenient method to get Specific converter from status code
+     *
+     * @param code A status code
+     * @return a converter that match the status code
+     */
     private ExpressionConverter getConverter(String code) {
         ExpressionConverter converter = null;
         StatusCode phrase = StatusCode.evaluate(code);

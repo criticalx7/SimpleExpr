@@ -10,17 +10,29 @@ import java.net.UnknownHostException;
 /**
  * Author: Mr.Chatchapol Rasameluangon
  * ID: 5810404901
+ * <p>
+ * This class handle connection to server
  */
 class Connector {
     private final String hostname;
     private final int port;
     private final InputProcessor processor = new InputProcessor();
 
+    /**
+     * @param hostname - to connect host name
+     * @param port     - to connect port
+     */
     Connector(String hostname, int port) {
         this.hostname = hostname;
         this.port = port;
     }
 
+    /**
+     * Open a connection and request result from server
+     *
+     * @param expr An expression to be sent
+     * @return A result string either answer or error
+     */
     String requestResult(String expr) {
         String result = "";
         try (Socket socket = new Socket(hostname, port);

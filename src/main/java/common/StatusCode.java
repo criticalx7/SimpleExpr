@@ -8,14 +8,14 @@ import java.util.Map;
 /**
  * Author: Mr.Chatchapol Rasameluangon
  * ID: 5810404901
+ * <p>
+ * A representation of status code and reason phrase
  */
 public enum StatusCode {
     PREFIX("01"),
     POSTFIX("02"),
     ERROR("11"),
     ANSWER("12");
-
-
 
     private static final Map<String, StatusCode> map = Collections.unmodifiableMap(initialize());
     private final String code;
@@ -28,6 +28,12 @@ public enum StatusCode {
         return code;
     }
 
+    /**
+     * Evaluate the phrase from code
+     *
+     * @param code A code that map to phrase
+     * @return A phrase that map to the code
+     */
     public static StatusCode evaluate(String code) {
         return map.get(code);
     }

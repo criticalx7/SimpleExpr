@@ -23,6 +23,8 @@ import java.io.IOException;
 /**
  * Author: Mr.Chatchapol Rasameluangon
  * ID: 5810404901
+ * <p>
+ * A simple action map controller of UI
  */
 public class SimpleUIController {
     @FXML
@@ -48,6 +50,9 @@ public class SimpleUIController {
     private StatusCode phrase;
 
 
+    /**
+     * Initialize connector and setup various UI elements
+     */
     public void initialize() {
         connector = new Connector("localhost", 31463);
         setupRoot();
@@ -56,6 +61,7 @@ public class SimpleUIController {
         postfixButton.setToggleGroup(toggleGroup);
         onPostfixSelected();
     }
+
 
     private void setupRoot() {
         Platform.runLater(root::requestFocus);
@@ -85,6 +91,9 @@ public class SimpleUIController {
         resultField.clear();
     }
 
+    /**
+     * On enter request a result from server
+     */
     @FXML
     public void onEnter() {
         if (!exprField.getText().isEmpty()) {
@@ -94,6 +103,9 @@ public class SimpleUIController {
         }
     }
 
+    /**
+     * Handle author button pressed to show Author dialog
+     */
     @FXML
     public void onAuthorPressed() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/authorUI.fxml"));
@@ -119,12 +131,18 @@ public class SimpleUIController {
         }
     }
 
+    /**
+     * Change mode to prefix
+     */
     @FXML
     public void onPrefixSelected() {
         prefixButton.setSelected(true);
         phrase = StatusCode.PREFIX;
     }
 
+    /**
+     * Change mode to postfix
+     */
     @FXML
     public void onPostfixSelected() {
         postfixButton.setSelected(true);

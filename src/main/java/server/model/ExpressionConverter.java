@@ -7,6 +7,9 @@ import java.util.logging.Logger;
 /**
  * Author: Mr.Chatchapol Rasameluangon
  * ID: 5810404901
+ * <p>
+ * An abstract class of Expression Converter handle common action such as
+ * change to list and process elements
  */
 public abstract class ExpressionConverter {
     private final Logger logger = Logger.getLogger(ExpressionConverter.class.getName());

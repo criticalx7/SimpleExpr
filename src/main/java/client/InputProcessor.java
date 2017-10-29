@@ -4,6 +4,12 @@ import common.StatusCode;
 
 class InputProcessor {
 
+    /**
+     * process the given input from server into code and description
+     *
+     * @param input A client input
+     * @return A result string
+     */
     String process(String input) {
         String result = "";
         String[] data = input.split(":");

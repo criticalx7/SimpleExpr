@@ -16,7 +16,7 @@ public class PostfixConverter extends ExpressionConverter {
     }
 
     /**
-     * convert all to post
+     * convert all to postfix
      *
      * @param expr Expression to convert
      * @return Result string of postfix conversion

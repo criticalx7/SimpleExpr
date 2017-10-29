@@ -38,6 +38,12 @@ public class PrefixConverter extends ExpressionConverter {
     }
 
 
+    /**
+     * convert all to prefix by reverse the input list and reverse the output list
+     *
+     * @param expr Expression to convert
+     * @return Result string of postfix conversion
+     */
     @Override
     public String convert(String expr) {
         expr = expr.replaceAll(" ", "");    // remove all whitespace
