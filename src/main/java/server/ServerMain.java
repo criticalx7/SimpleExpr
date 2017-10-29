@@ -7,9 +7,8 @@ package server;
 class ServerMain {
 
     public static void main(String[] args) {
-        int port = 31463;
-        ConverterServer server = new ConverterServer(port);
+        int DEFAULT_PORT = 31463;
+        ConverterServer server = new ConverterServer(DEFAULT_PORT);
         server.listen();
-
     }
 }

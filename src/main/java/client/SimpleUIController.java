@@ -1,5 +1,6 @@
 package client;
 
+import common.ConverterPhrase;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -41,9 +42,10 @@ public class SimpleUIController {
 
     @FXML
     protected VBox root;
+    private final ToggleGroup toggleGroup = new ToggleGroup();
 
     private Connector connector;
-    private final ToggleGroup toggleGroup = new ToggleGroup();
+    private ConverterPhrase phrase;
 
 
     public void initialize() {
@@ -52,7 +54,7 @@ public class SimpleUIController {
         setupFieldListener();
         prefixButton.setToggleGroup(toggleGroup);
         postfixButton.setToggleGroup(toggleGroup);
-        postfixButton.setSelected(true);
+        onPostfixSelected();
     }
 
     private void setupRoot() {
@@ -86,7 +88,7 @@ public class SimpleUIController {
     @FXML
     public void onEnter() {
         if (!exprField.getText().isEmpty()) {
-            String mode = ((ToggleButton) toggleGroup.getSelectedToggle()).getText().toUpperCase();
+            String mode = phrase.getCode();
             String result = connector.requestResult(String.format("%s %s", mode, exprField.getText()));
             resultField.setText(result);
         }
@@ -120,11 +122,13 @@ public class SimpleUIController {
     @FXML
     public void onPrefixSelected() {
         prefixButton.setSelected(true);
+        phrase = ConverterPhrase.PREFIX;
     }
 
     @FXML
     public void onPostfixSelected() {
         postfixButton.setSelected(true);
+        phrase = ConverterPhrase.POSTFIX;
     }
 
 }

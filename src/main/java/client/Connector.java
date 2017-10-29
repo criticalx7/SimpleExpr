@@ -30,7 +30,7 @@ class Connector {
         } catch (UnknownHostException e) {
             e.printStackTrace();
         } catch (IOException e) {
-            result = "The server is not available.";
+            result = "SERVER OFFLINE";
         }
         return result;
 
