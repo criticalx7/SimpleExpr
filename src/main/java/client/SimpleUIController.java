@@ -1,6 +1,6 @@
 package client;
 
-import common.ConverterPhrase;
+import common.StatusCode;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -45,7 +45,7 @@ public class SimpleUIController {
     private final ToggleGroup toggleGroup = new ToggleGroup();
 
     private Connector connector;
-    private ConverterPhrase phrase;
+    private StatusCode phrase;
 
 
     public void initialize() {
@@ -89,7 +89,7 @@ public class SimpleUIController {
     public void onEnter() {
         if (!exprField.getText().isEmpty()) {
             String mode = phrase.getCode();
-            String result = connector.requestResult(String.format("%s %s", mode, exprField.getText()));
+            String result = connector.requestResult(String.format("%s:%s", mode, exprField.getText()));
             resultField.setText(result);
         }
     }
@@ -122,13 +122,13 @@ public class SimpleUIController {
     @FXML
     public void onPrefixSelected() {
         prefixButton.setSelected(true);
-        phrase = ConverterPhrase.PREFIX;
+        phrase = StatusCode.PREFIX;
     }
 
     @FXML
     public void onPostfixSelected() {
         postfixButton.setSelected(true);
-        phrase = ConverterPhrase.POSTFIX;
+        phrase = StatusCode.POSTFIX;
     }
 
 }

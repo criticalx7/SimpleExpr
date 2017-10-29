@@ -6,6 +6,9 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.*;
 
@@ -24,9 +27,14 @@ class ConverterServer {
         logger.setUseParentHandlers(false);
         Handler handler = new ConsoleHandler();
         handler.setFormatter(new Formatter() {
+            private final DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+
             @Override
             public String format(LogRecord record) {
-                return String.format("%s: %s%n", record.getLevel(), record.getMessage());
+                return String.format("%s %s: %s%n",
+                        timeFormatter.format(LocalDateTime.ofInstant(record.getInstant(), ZoneId.systemDefault())),
+                        record.getLevel(),
+                        record.getMessage());
             }
         });
         logger.addHandler(handler);
@@ -64,8 +72,9 @@ class ConverterServer {
                 String clientInput = in.readLine();
                 logger.info(String.format("Processing %s", clientInput));
                 ConverterProtocol protocol = new ConverterProtocol();
-                String output = protocol.processInput(clientInput);
+                String output = protocol.process(clientInput);
                 out.println(output);
+                logger.info(String.format("Sent: %s", output));
                 logger.info(String.format("Client: %s exited%n", client.getLocalAddress()));
                 client.close();
             } catch (IOException e) {

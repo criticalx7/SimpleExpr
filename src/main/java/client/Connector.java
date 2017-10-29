@@ -14,6 +14,7 @@ import java.net.UnknownHostException;
 class Connector {
     private final String hostname;
     private final int port;
+    private final InputProcessor processor = new InputProcessor();
 
     Connector(String hostname, int port) {
         this.hostname = hostname;
@@ -26,7 +27,8 @@ class Connector {
              PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
              BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
             out.println(expr);
-            result = in.readLine();
+            String input = in.readLine();
+            result = processor.process(input);
         } catch (UnknownHostException e) {
             e.printStackTrace();
         } catch (IOException e) {
